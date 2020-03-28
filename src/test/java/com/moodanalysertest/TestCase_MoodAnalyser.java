@@ -8,17 +8,17 @@ public class TestCase_MoodAnalyser {
 
         @Test
         public void return_Sad_Mood(){
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            String actual = moodAnalyser.analyseMood("i am in sad mood");
+            MoodAnalyser moodAnalyser = new MoodAnalyser("i am in sad mood");
+            String actual = moodAnalyser.analyseMood();
             String expected= "SAD";
             Assert.assertEquals(expected,actual);
         }
         @Test
         public void return_Happy_Mood(){
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            String actual = moodAnalyser.analyseMood("i am in any mood");
-            String expected= "HAPPY";
-            Assert.assertEquals(expected,actual);
-        }
+        MoodAnalyser moodAnalyser = new MoodAnalyser("i am in Happy mood");
+        String actual = moodAnalyser.analyseMood();
+        String expected= "HAPPY";
+        Assert.assertEquals(expected,actual);
+    }
 
 }
