@@ -1,32 +1,29 @@
 package com.moodanalysertest;
 
 import com.moodanalyser.MoodAnalyser;
+import com.moodanalyser.MoodAnalyser_Exception;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class TestCase_MoodAnalyser {
 
-        @Test
-        public void return_Sad_Mood(){
-            MoodAnalyser moodAnalyser = new MoodAnalyser("i am in sad mood");
-            String actual = moodAnalyser.analyseMood();
-            String expected= "SAD";
-            Assert.assertEquals(expected,actual);
-        }
-        @Test
-        public void return_Happy_Mood(){
-        MoodAnalyser moodAnalyser = new MoodAnalyser("i am in Happy mood");
-        String actual = moodAnalyser.analyseMood();
-        String expected= "HAPPY";
-        Assert.assertEquals(expected,actual);
-       }
     @Test
-    public void return_Happy_When_Mood_Is_Null(){
-        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
-        String actual = moodAnalyser.analyseMood();
-        String expected= "HAPPY";
-        Assert.assertEquals(expected,actual);
+    public void Empty_Mood_Throw_MoodAnalyser_Exception(){
+        MoodAnalyser moodAnalyser = new MoodAnalyser("");
+        try {
+            String mood = moodAnalyser.analyseMood();
+        } catch (MoodAnalyser_Exception e) {
+            Assert.assertEquals("EMPTY MOOD", e.getMessage());
+        }
     }
 
-
+    @Test
+    public void Null_Mood_Throw_MoodAnalyser_Exception() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        try {
+            String mood = moodAnalyser.analyseMood();
+        } catch (MoodAnalyser_Exception e) {
+            Assert.assertEquals("NULL MOOD", e.getMessage());
+        }
+    }
 }
