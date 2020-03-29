@@ -19,6 +19,14 @@ public class TestCase_MoodAnalyser {
         String actual = moodAnalyser.analyseMood();
         String expected= "HAPPY";
         Assert.assertEquals(expected,actual);
+       }
+    @Test
+    public void return_Happy_When_Mood_Is_Null(){
+        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        String actual = moodAnalyser.analyseMood();
+        String expected= "HAPPY";
+        Assert.assertEquals(expected,actual);
     }
+
 
 }
