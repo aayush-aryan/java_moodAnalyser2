@@ -10,6 +10,9 @@ public class MoodAnalyser_Exception extends Exception {
         }
 
         public ExceptionType type;
+    public MoodAnalyser_Exception(String message){
+        super(message);
+    }
 
         public MoodAnalyser_Exception(ExceptionType type, String message) {
             super(message);
