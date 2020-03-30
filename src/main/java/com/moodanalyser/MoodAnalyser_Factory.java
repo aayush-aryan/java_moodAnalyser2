@@ -5,12 +5,10 @@ import java.lang.reflect.InvocationTargetException;
 
 public class MoodAnalyser_Factory {
     public static MoodAnalyser createMoodAnalyserObject(String className, Class<?>... param) throws MoodAnalyser_Exception, IllegalAccessException, InvocationTargetException, InstantiationException {
-
         try {
             Class<?> moodAnalyserClass = Class.forName(className);
             Constructor<?> moodConstructor = moodAnalyserClass.getConstructor(param);
-            System.out.println(moodConstructor);
-            return (MoodAnalyser) moodConstructor.newInstance();
+            return (MoodAnalyser) moodConstructor.newInstance("i am happy");
         } catch (ClassNotFoundException e) {
             throw new MoodAnalyser_Exception(MoodAnalyser_Exception.ExceptionType.NO_SUCH_CLASS, "NO_SUCH_CLASS_ERROR");
         } catch (NoSuchMethodException e) {
