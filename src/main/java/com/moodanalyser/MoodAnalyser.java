@@ -5,7 +5,7 @@ public class MoodAnalyser {
     String message;
 
     public MoodAnalyser() {
-
+        message = "happy";
     }
 
     public MoodAnalyser(String message) {
@@ -22,5 +22,11 @@ public class MoodAnalyser {
         } catch (NullPointerException e) {
             throw new MoodAnalyser_Exception(MoodAnalyser_Exception.ExceptionType.ENTERED_NULL, "NULL MOOD");
         }
+    }
+
+    public boolean isEqualsObject(Object another) {
+        if (this.getClass().equals(another.getClass()))
+            return true;
+        return false;
     }
 }
