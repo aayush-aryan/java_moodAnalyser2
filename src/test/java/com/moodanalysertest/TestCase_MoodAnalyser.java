@@ -8,34 +8,30 @@ import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
 
-    public class TestCase_MoodAnalyser {
-
-
-        private MoodAnalyser_Factory MoodAnalyserFactory;
-
+    public class TestCase_MoodAnalyser{
         @Test
-        public void givenMoodAnalyserClassNameShouldReturnMoodAnalyserObject(){
+        public void moodAnalyser_ClassName_Return_MoodAnalyserObject(){
             MoodAnalyser moodAnalyser = new MoodAnalyser();
             try {
-                MoodAnalyser anotherMoodAnalyserObject = MoodAnalyser_Factory.createMoodAnalyserObject("com.moodAnalyser.MoodAnalyser");
-                Assert.assertEquals(true,  moodAnalyser.isEqualsObject(anotherMoodAnalyserObject));
+                MoodAnalyser anotherMoodAnalyserObject = MoodAnalyser_Factory.createMoodAnalyserObject("com.moodAnalyser.MoodAnalyser",String.class);
+                Assert.assertTrue(moodAnalyser.isEqualsObject(anotherMoodAnalyserObject));
             } catch (MoodAnalyser_Exception | IllegalAccessException | InvocationTargetException | InstantiationException e) {
                 e.printStackTrace();
             }
         }
         @Test
-        public void givenClassNameImproperShouldThrowMoodAnalyserException() {
+        public void classNameImproper_ThrowMood_AnalyserException() {
             try {
-                MoodAnalyser_Factory.createMoodAnalyserObject("com.moodAnalyser.MoodAnalyser");
+                MoodAnalyser_Factory.createMoodAnalyserObject("com.moodAnalyser.MindAnalyser",String.class);
                 System.out.println(" not exception");
-            } catch (IllegalAccessException | InvocationTargetException | InstantiationException | MoodAnalyser_Exception e) {
+            } catch (MoodAnalyser_Exception | IllegalAccessException | InvocationTargetException | InstantiationException e) {
                 Assert.assertEquals("NO_SUCH_CLASS_ERROR", e.getMessage());
             }
         }
         @Test
-        public void givenImproperConstructorParameterShouldThrowMoodAnalyserException() {
+        public void constructorParameter_Throw_moodAnalyser_Exception() {
             try {
-                MoodAnalyser moodAnalyser = MoodAnalyserFactory.createMoodAnalyserObject("com.moodAnalyser.java.MoodAnalyser", Integer.class);
+                MoodAnalyser moodAnalyser = MoodAnalyser_Factory.createMoodAnalyserObject("com.moodAnalyser.MoodAnalyser",Integer.class);
             } catch (MoodAnalyser_Exception | IllegalAccessException | InvocationTargetException | InstantiationException e) {
                 Assert.assertEquals("NO_SUCH_METHOD_ERROR", e.getMessage());
             }
