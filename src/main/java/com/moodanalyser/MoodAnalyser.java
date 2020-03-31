@@ -9,7 +9,6 @@ public class MoodAnalyser {
         this.message=message;
     }
     public String analyseMood(String msg) throws MoodAnalyser_Exception {
-        this.message = message;
         return analyseMood();
     }
     public String analyseMood() throws MoodAnalyser_Exception {
@@ -24,9 +23,7 @@ public class MoodAnalyser {
         }
     }
     public boolean isEqualsObject(Object another){
-        if (this.getClass().equals(another.getClass()))
-            return true;
-        return false;
+        return this.getClass().equals(another.getClass());
     }
 
 
