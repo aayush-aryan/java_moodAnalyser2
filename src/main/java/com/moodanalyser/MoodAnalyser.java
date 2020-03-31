@@ -8,6 +8,10 @@ public class MoodAnalyser {
     public MoodAnalyser(String message){
         this.message=message;
     }
+    public String analyseMood(String msg) throws MoodAnalyser_Exception {
+        this.message = message;
+        return analyseMood();
+    }
     public String analyseMood() throws MoodAnalyser_Exception {
         try {
             if(message.length()==0)
@@ -20,9 +24,11 @@ public class MoodAnalyser {
         }
     }
     public boolean isEqualsObject(Object another){
-        return this.getClass().equals(another.getClass());
-
+        if (this.getClass().equals(another.getClass()))
+            return true;
+        return false;
     }
+
 
 
 }

@@ -2,22 +2,15 @@ package com.moodanalyser;
 
 public class MoodAnalyser_Exception extends Exception {
 
-        public enum ExceptionType {
-            ENTERED_NULL,
-            ENTERED_EMPTY,
-            NO_SUCH_CLASS,
-            NO_SUCH_METHOD;
-        }
-
-        public ExceptionType type;
-    public MoodAnalyser_Exception(String message){
-        super(message);
+    public enum ExceptionType{
+        ENTERED_NULL,ENTERED_EMPTY,NO_SUCH_CLASS,NO_SUCH_METHOD,NO_ACCESS
+        ,METHOD_INVOCATION_ISSUE,OBJECT_CREATION_ISSUE
     }
-
-        public MoodAnalyser_Exception(ExceptionType type, String message) {
-            super(message);
-            this.type = type;
-        }
+    public ExceptionType type;
+    public  MoodAnalyser_Exception(ExceptionType type, String message){
+        super(message);
+        this.type=type;
+    }
 
 }
 
